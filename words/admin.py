@@ -1,8 +1,11 @@
 from django.contrib import admin
+from django.utils.text import slugify
 from . import models
 
 
-# Register your models here.
+class WordAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+
 admin.site.register(models.Category)
-admin.site.register(models.Word)
- 
+admin.site.register(models.Word, WordAdmin)
