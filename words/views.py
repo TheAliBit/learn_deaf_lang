@@ -23,10 +23,9 @@ def category_view(request, pk=None):
 
 def word_detail_view(request, slug):
     detail = get_object_or_404(Word, slug=slug)
-    category = Word.category
-    return render(request,
-                  'word_detail.html',
-                  context={
-                      'detail': detail,
-                      'category': category
-                  })
+    name = detail.name
+    image = detail.image
+    video = detail.video
+    description = detail.description
+    context = {'name': name, 'image': image, 'video': video, 'description': description}
+    return render(request, 'word_detail.html', context)

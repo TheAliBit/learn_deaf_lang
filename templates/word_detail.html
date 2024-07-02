@@ -2,10 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Word Detail</title>
+    <title>{{ name }}</title>
 </head>
 <body>
-<h1>{{ detail.name }}</h1>
-<p>{{ detail.description }}</p>
+<h1>{{ name }}</h1>
+{% if image %}
+    <img src="{{ image.url }}">
+{% else %}
+    <p>No image available</p>
+{% endif %}
+<h1>{{ video }}</h1>
+<p>{{ description }}</p>
 </body>
 </html>
