@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WORDS</title>
+</head>
+<body>
+{% for word in liked_words%}
+<br><br><br>
+<span>{{ word.name }}</span>
+<br><br><br>
+<img src="{{ word.image.url }}" alt="Profile Image">
+<br><br><br>
+{#<video src="{{ word.video.url }}" controls></video>#}
+<br><br><br>
+<span>{{ word.description }}</span>
+<br><br><br>
+{% endfor %}
+</body>
+</html>

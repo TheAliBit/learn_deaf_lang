@@ -5,6 +5,7 @@ from . import models
 
 class WordAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
+    fields = ['name', 'slug', 'video', 'image', 'description']
 
 
 admin.site.register(models.Category)

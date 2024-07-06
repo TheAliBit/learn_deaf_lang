@@ -2,97 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .profile-container {
-            display: flex;
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .profile-image {
-            flex: 1;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .profile-image img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .profile-info {
-            flex: 2;
-            padding: 20px;
-        }
-
-        .profile-info h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .profile-info p {
-            font-size: 16px;
-            margin-bottom: 8px;
-        }
-
-        .profile-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        .profile-info ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .profile-info ul li {
-            font-size: 16px;
-            margin-bottom: 4px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .profile-info ul li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #007bff;
-        }
-    </style>
+    <title>PROFILE</title>
 </head>
 <body>
-<div class="profile-container">
-    <div class="profile-image">
-        <img src="{{ profile.image.url }}" alt="Profile Image">
-    </div>
-    <div class="profile-info">
-        <h2>{{ profile.get_full_name }}</h2>
-        <p><strong>نام کاربری:</strong> {{ profile.username }}</p>
-        <p><strong>ایمیل:</strong> {{ profile.email }}</p>
-        <p><strong>سن:</strong> {{ profile.age }}</p>
-        <ul>
-            {% for word in profile.liked_words.all %}
-                <li>{{ word.word }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+
+<h1>Welcome, {{ user_name }}</h1>
+<img width="100" height="100" src="{{ image.url }}" alt="Profile Image">
+<p>First Name: {{ first_name }}</p>
+<p>Last Name: {{ last_name }}</p>
+<p>Email: {{ email }}</p>
+<p>Age: {{ age }}</p>
+
+<a href="{% url 'like' %}" class="btn btn-primary">View Liked Words</a>
+
 </body>
 </html>

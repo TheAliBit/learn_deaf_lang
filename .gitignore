@@ -8,3 +8,4 @@ venv
 *.swp
 */migrations/*
 !*/migrations/__init__.py
+/media

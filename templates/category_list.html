@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>CATEGORY</title>
+
 </head>
 <body>
+
 {% if child_category %}
-    <h2>Subcategories:</h2>
-    <ul>
-        {% for child in child_category %}
-            <li>
-                <a href="{% url 'category_view' child.pk %}">{{ child.name }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+
+    {% for child in child_category %}
+        <a href="{% url 'category_view' child.pk %}">{{ child.name }}</a>
+    {% endfor %}
 
 {% elif words %}
-    <h2>Words:</h2>
-    <ul>
-        {% for word in words %}
-            <li>
-                <a href="{% url 'word_detail_view' word.slug %}">{{ word.name }}</a>
-                <!-- Link to word detail view -->
-            </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No subcategories or words found.</p>
+    {% for word in words %}
+        <a href="{% url 'word_detail_view' word.slug %}">{{ word.name }}</a>
+    {% endfor %}
 {% endif %}
+
 </body>
 </html>

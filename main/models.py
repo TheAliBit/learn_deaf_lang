@@ -13,7 +13,7 @@ class Profile(AbstractUser):  # do we need to create the user variables when we 
     email = models.EmailField(verbose_name="ایمیل")
     image = models.ImageField(upload_to='uploads/', validators=[FileExtensionValidator(['jpg', 'jpeg', 'png'])],
                               verbose_name="تصویر")  # TODO: upload to
-    liked_words = models.ManyToManyField(Word, related_name='liked_by', verbose_name="کلمه های مورد علاقه")
+    liked_words = models.ManyToManyField(Word, related_name='liked_by', verbose_name="کلمه های مورد علاقه", blank=True)
 
     class Meta:
         verbose_name = 'پروفایل'

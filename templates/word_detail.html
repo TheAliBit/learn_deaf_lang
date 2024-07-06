@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ name }}</title>
+    <title>WORDS</title>
 </head>
 <body>
-<h1>{{ name }}</h1>
-{% if image %}
-    <img src="{{ image.url }}">
+<br><br><br>
+<span>{{ word.name }}</span>
+<br><br><br>
+<img src="{{ word.image.url }}" alt="Profile Image">
+<br><br><br>
+<video src="{{ word.video.url }}" controls></video>
+<br><br><br>
+<span>{{ word.description }}</span>
+<br><br><br>
+{% if word in profile.liked_words.all %}
+    <form action="{% url 'unlike_word' slug=word.slug %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Unlike</button>
+    </form>
 {% else %}
-    <p>No image available</p>
+    <form action="{% url 'like_word' slug=word.slug %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Like</button>
+    </form>
 {% endif %}
-<h1>{{ video }}</h1>
-<p>{{ description }}</p>
 </body>
 </html>
